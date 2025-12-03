@@ -48,7 +48,8 @@ class _CalculatorPageState extends State<CalculatorPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text(
-              'Пожалуйста, введите корректный вес и количество повторений.'),
+            'Пожалуйста, введите корректный вес и количество повторений.',
+          ),
           backgroundColor: Colors.red,
         ),
       );
@@ -73,9 +74,7 @@ class _CalculatorPageState extends State<CalculatorPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Кибер-Колхоз 1ПМ Калькулятор'),
-      ),
+      appBar: AppBar(title: const Text('Кибер-Колхоз 1ПМ Калькулятор')),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -154,8 +153,9 @@ class _CalculatorPageState extends State<CalculatorPage> {
                         child: Text(
                           'Внимание: Точность расчётов снижается для количества повторений > 10.',
                           style: TextStyle(
-                              color: Colors.redAccent,
-                              fontStyle: FontStyle.italic),
+                            color: Colors.redAccent,
+                            fontStyle: FontStyle.italic,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ),
@@ -172,16 +172,20 @@ class _CalculatorPageState extends State<CalculatorPage> {
                             ),
                             const SizedBox(height: 8),
                             ..._result!.allFormulas.entries.map((entry) {
-                              if (entry.value <= 0) return const SizedBox.shrink();
+                              if (entry.value <= 0)
+                                return const SizedBox.shrink();
                               return Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(vertical: 4.0),
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 4.0,
+                                ),
                                 child: Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(entry.key),
-                                    Text('${entry.value.toStringAsFixed(1)} кг'),
+                                    Text(
+                                      '${entry.value.toStringAsFixed(1)} кг',
+                                    ),
                                   ],
                                 ),
                               );
